@@ -63,6 +63,7 @@ public class Walker
   // Draws this walker
   public void draw(Graphics g)
   {
-    
+    leftFoot.draw(g);
+    rightFoot.draw(g);
   }
 }

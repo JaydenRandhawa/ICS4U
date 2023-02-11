@@ -6,14 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 
-public class FootTest extends JPanel
+public class WalkerTest extends JPanel
 {
-  private Image shoe;
+  private Image leftShoe;
+  private Image rightShoe;
 
   // Constructor
-  public FootTest()
+  public WalkerTest()
   {
-    shoe = (new ImageIcon("leftshoe.gif")).getImage();
+    leftShoe = (new ImageIcon("leftshoe.gif")).getImage();
+    rightShoe = (new ImageIcon("rightShoe.gif")).getImage();
   }
 
   // Called automatically when the panel needs repainting
@@ -21,31 +23,23 @@ public class FootTest extends JPanel
   {
     super.paintComponent(g);
 
-    int x = 300;
+    int x = 100;
     int y = 100;
     int stepLength = 100;
 
-    Foot foot = new Foot(x, y, shoe);
+    Walker walker = new Walker(x, y, leftShoe, rightShoe);
 
-    for (int count = 1; count <= 8; count++)
-    {
-      foot.draw(g);
-      foot.turn(45);
-      foot.moveForward(stepLength);
-    }
+    walker.draw(g);
 
-    // Draw a cursor at the expected center of the first "shoe":
-    g.drawLine(x - 50, y, x + 50, y);
-    g.drawLine(x, y - 50, x, y + 50);
   }
 
   public static void main(String[] args)
   {
-    JFrame window = new JFrame("Feet");
-    window.setBounds(100, 100, 500, 480);
+    JFrame window = new JFrame("Walker");
+    window.setBounds(100, 100, 800, 480);
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    FootTest panel = new FootTest();
+    WalkerTest panel = new WalkerTest();
     panel.setBackground(Color.WHITE);
     Container c = window.getContentPane();
     c.add(panel);
