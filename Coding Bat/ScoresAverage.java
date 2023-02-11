@@ -1,6 +1,6 @@
 public class ScoresAverage{
     public static void main(String[] args) {
-        int[] scores = {2, 2, 4, 4};
+        int[] scores = {5, 6};
 
         System.out.println(scoresAverage(scores));
     }
@@ -9,7 +9,7 @@ public class ScoresAverage{
         int halfPoint = scores.length/2;
 
         int av1 = average(scores, 0, halfPoint);
-        int av2 = average(scores, halfPoint+1, scores.length-1);
+        int av2 = average(scores, halfPoint, scores.length);
 
         if(av1 > av2){
             return av1;
@@ -22,12 +22,13 @@ public class ScoresAverage{
 
 static int average(int[] scores, int start, int end){
     int average = 0;
-    for(int i = start;i<end-start;i++){
+    int len = (scores.length>2)?end-start:(start == 0)?0:1;
+    for(int i = start;i<= len;i++){
         average += scores[i];
+        System.out.println(average);
     }
-    average /= (scores.length/2                    );
+    average /= (end-start);
     return average;
 
-}
 }
 }
