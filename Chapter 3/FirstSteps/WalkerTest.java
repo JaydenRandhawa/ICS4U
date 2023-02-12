@@ -11,11 +11,17 @@ public class WalkerTest extends JPanel
   private Image leftShoe;
   private Image rightShoe;
 
+  private Image leftSandal;
+  private Image rightSandal;
+
   // Constructor
   public WalkerTest()
   {
-    leftShoe = (new ImageIcon("leftshoe.gif")).getImage();
-    rightShoe = (new ImageIcon("rightShoe.gif")).getImage();
+    leftShoe = (new ImageIcon("FirstSteps/leftshoe.gif")).getImage();
+    rightShoe = (new ImageIcon("FirstSteps/rightshoe.gif")).getImage();
+
+    leftSandal = (new ImageIcon("FirstSteps/leftsandal.gif")).getImage();
+    rightSandal = (new ImageIcon("FirstSteps/rightsandal.gif")).getImage();
   }
 
   // Called automatically when the panel needs repainting
@@ -27,9 +33,24 @@ public class WalkerTest extends JPanel
     int y = 100;
     int stepLength = 100;
 
-    Walker walker = new Walker(x, y, leftShoe, rightShoe);
+    Walker maleWalker = new Walker(x, y, leftShoe, rightShoe);
+    Walker femaleWalker = new Walker(x, y+200, leftSandal, rightSandal);
+    // maleWalker.draw(g);
 
-    walker.draw(g);
+    for(int i=0;i<=6;i++){
+      maleWalker.draw(g);
+      maleWalker.nextStep();
+    }
+
+    for(int i=0;i<=2;i++){
+      femaleWalker.draw(g);
+      femaleWalker.nextStep();
+    }
+
+    femaleWalker.nextStep();
+    femaleWalker.nextStep();
+    femaleWalker.nextStep();
+    femaleWalker.draw(g);
 
   }
 

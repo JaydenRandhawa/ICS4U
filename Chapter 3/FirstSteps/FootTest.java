@@ -13,7 +13,7 @@ public class FootTest extends JPanel
   // Constructor
   public FootTest()
   {
-    shoe = (new ImageIcon("leftshoe.gif")).getImage();
+    shoe = (new ImageIcon("FirstSteps/leftshoe.gif")).getImage();
   }
 
   // Called automatically when the panel needs repainting
